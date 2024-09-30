@@ -1,13 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 body {
-    background-color: black;
+    background: 
+        url(./img/banner.png);
     font-family: "Poppins", sans-serif;
     font-weight: 500;
 }
 
 .box {
-    background-color: rgb(17, 17, 17);
+    background-color: rgba(255, 255, 255, 0); 
+    backdrop-filter: blur(10px); 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.37);
     width: 700px;
     padding: 20px;
     border-radius: 30px;
@@ -98,7 +101,6 @@ body {
 .info {
     text-align: center;
     display: grid;
-    margin-bottom: 30px;
     margin-top: 15px;
 }
 
@@ -107,6 +109,85 @@ body {
     justify-content: center;
 }
 
+.avatar, .info, .socials, .audio-player {
+    opacity: 0;  /* Początkowo niewidoczne */
+    animation: fadeIn 1.5s forwards ease-out;  /* Animacja pojawiania się */
+    animation-delay: 1.5s;  /* Opóźnienie pojawienia się dla pierwszego elementu */
+}
 
+.info {
+    animation-delay: 2s;  /* Opóźnienie pojawienia się dla info */
+}
 
+.audio-player {
+    animation-delay: 2.5s;  /* Opóźnienie pojawienia się dla socials */
+}
 
+.socials {
+    animation-delay: 3s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.audio-player {
+    font-family: 'Courier New', Courier, monospace;
+    width: 300px;
+    margin: 5px auto;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.controls button {
+    background-color: #00000000;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.controls button:hover {
+    background-color: #00000000;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #00000000;
+    border: solid white 2px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.progress {
+    height: 10px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    width: 0;
+}
+
+.time {
+    margin-top: 10px;
+    font-size: 14px;
+    color: white;
+}
+
+.socials {
+    display: flex;
+    flex-direction: row;
+}
