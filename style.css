@@ -191,3 +191,10 @@ body {
     display: flex;
     flex-direction: row;
 }
+
+.place {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+}
