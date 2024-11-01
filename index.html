@@ -1,86 +1,263 @@
-<!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>bullet proof</title>
+    <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./src/favicon.ico" type="image/x-icon">
     <style>
-        #loader {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #000000;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            display: flex;
-            opacity: 1;
-            transition: opacity 0.5s ease-out;
-        }
+      #loader {
+          position: fixed;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          background-color: #000000;
+          justify-content: center;
+          align-items: center;
+          z-index: 9999;
+          display: flex;
+          opacity: 1;
+          transition: opacity 0.5s ease-out;
+      }
 
-        .spinner {
-            border: 8px solid #000000;
-            border-top: 8px solid #ffffff;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1.0s linear infinite;
-        }
+      .spinner {
+          border: 8px solid #000000;
+          border-top: 8px solid #ffffff;
+          border-radius: 50%;
+          width: 50px;
+          height: 50px;
+          animation: spin 1.0s linear infinite;
+      }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+      @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+      }
 
-        .outer-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+      .outer-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
 
-        .image-container {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+      .image-container {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
 
-        .image-container img {
-            height: 10em;
-            width: auto;
-            margin-top: 20px;
-            border: 1px solid #000000;
-        }
+      .image-container img {
+          height: 10em;
+          width: auto;
+          margin-top: 20px;
+          border: 1px solid #000000;
+      }
 
-        .image-container .overlay {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -56%);
-            height: 12em;
-            width: auto;
-            z-index: 1;
-        }
-    </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var loader = document.getElementById('loader');
-            if (loader) {
-                setTimeout(function() {
-                    loader.style.opacity = '0';
-                    setTimeout(function() {
-                        loader.style.display = 'none';
-                    }, 500);
-                }, 750);
+      .image-container .overlay {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -56%);
+          height: 12em;
+          width: auto;
+          z-index: 1;
+      }
+  </style>
+  <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          var loader = document.getElementById('loader');
+          if (loader) {
+              setTimeout(function() {
+                  loader.style.opacity = '0';
+                  setTimeout(function() {
+                      loader.style.display = 'none';
+                  }, 500);
+              }, 750);
+          }
+      });
+  </script>
+  <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const text = "venty.lol";
+        let index = 0;
+        let direction = 1; 
+  
+        function typeWriter() {
+          if (direction === 1) {
+            document.title = text.substring(0, index + 1);
+            index++;
+            if (index === text.length) {
+              setTimeout(() => { direction = -1; }, 500); 
             }
-        });
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
+          } else {
+            document.title = text.substring(0, index - 1);
+            index--;
+            if (index === 0) {
+              setTimeout(() => { direction = 1; }, 500); 
+            }
+          }
+        }
+  
+        setInterval(typeWriter, 400);
+      });
+  </script>
+</head>
+<body>
+  <div id="loader"><div class="spinner"></div></div>
+
+    <div class="card">
+        <div class="profile-info">
+            <div class="avatar">
+                <img src="./src/6c7f9bb296af33b771b225d954da2447.jpg" alt="Profile Picutre" width="150px" style="border-radius: 100%;">
+            </div>
+            <div class="info" style="display: grid; text-align: center;">
+                <span class="gradient-text">venty</span>
+                <span class="desc">it all feels the same and im sick of it</span>
+            </div>
+        </div>
+        <div class="socials">
+            <div class="tooltip-container">
+                <svg xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0px 0px 4px rgb(255, 255, 255));" width="36px" height="36px" viewBox="1.96 4.26 20.03 15.53">
+                    <path fill="#FFFFFF" d="M14.82 4.26a10.14 10.14 0 0 0-.53 1.1a14.66 14.66 0 0 0-4.58 0a10.14 10.14 0 0 0-.53-1.1a16 16 0 0 0-4.13 1.3a17.33 17.33 0 0 0-3 11.59a16.6 16.6 0 0 0 5.07 2.59A12.89 12.89 0 0 0 8.23 18a9.65 9.65 0 0 1-1.71-.83a3.39 3.39 0 0 0 .42-.33a11.66 11.66 0 0 0 10.12 0q.21.18.42.33a10.84 10.84 0 0 1-1.71.84a12.41 12.41 0 0 0 1.08 1.78a16.44 16.44 0 0 0 5.06-2.59a17.22 17.22 0 0 0-3-11.59a16.09 16.09 0 0 0-4.09-1.35zM8.68 14.81a1.94 1.94 0 0 1-1.8-2a1.93 1.93 0 0 1 1.8-2a1.93 1.93 0 0 1 1.8 2a1.93 1.93 0 0 1-1.8 2zm6.64 0a1.94 1.94 0 0 1-1.8-2a1.93 1.93 0 0 1 1.8-2a1.92 1.92 0 0 1 1.8 2a1.92 1.92 0 0 1-1.8 2z"></path>
+                </svg>
+                <div class="tooltip">hoecheater#0</div>
+            </div>
+            <a href="https://www.instagram.com/instagram/">
+                <svg xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0px 0px 4px rgb(255, 255, 255));" width="35px" height="35px" viewBox="3 2.98 18.01 18.04">
+                    <path fill="#FFFFFF" d="M20.947 8.305a6.53 6.53 0 0 0-.419-2.216a4.61 4.61 0 0 0-2.633-2.633a6.606 6.606 0 0 0-2.186-.42c-.962-.043-1.267-.055-3.709-.055s-2.755 0-3.71.055a6.606 6.606 0 0 0-2.185.42a4.607 4.607 0 0 0-2.633 2.633a6.554 6.554 0 0 0-.419 2.185c-.043.963-.056 1.268-.056 3.71s0 2.754.056 3.71c.015.748.156 1.486.419 2.187a4.61 4.61 0 0 0 2.634 2.632a6.584 6.584 0 0 0 2.185.45c.963.043 1.268.056 3.71.056s2.755 0 3.71-.056a6.59 6.59 0 0 0 2.186-.419a4.615 4.615 0 0 0 2.633-2.633c.263-.7.404-1.438.419-2.187c.043-.962.056-1.267.056-3.71c-.002-2.442-.002-2.752-.058-3.709zm-8.953 8.297c-2.554 0-4.623-2.069-4.623-4.623s2.069-4.623 4.623-4.623a4.623 4.623 0 0 1 0 9.246zm4.807-8.339a1.077 1.077 0 0 1-1.078-1.078a1.077 1.077 0 1 1 2.155 0c0 .596-.482 1.078-1.077 1.078z"></path>
+                    <circle cx="11.994" cy="11.979" r="3.003" fill="#FFFFFF"></circle>
+                </svg>
+            </a>
+            <a href="https://www.youtube.com/@ggwenti">
+                <svg xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0px 0px 4px rgb(255, 255, 255));" width="35px" height="35px" viewBox="1.99 5 20.01 14.01">
+                    <path fill="#FFFFFF" d="M21.593 7.203a2.506 2.506 0 0 0-1.762-1.766C18.265 5.007 12 5 12 5s-6.264-.007-7.831.404a2.56 2.56 0 0 0-1.766 1.778c-.413 1.566-.417 4.814-.417 4.814s-.004 3.264.406 4.814c.23.857.905 1.534 1.763 1.765c1.582.43 7.83.437 7.83.437s6.265.007 7.831-.403a2.515 2.515 0 0 0 1.767-1.763c.414-1.565.417-4.812.417-4.812s.02-3.265-.407-4.831zM9.996 15.005l.005-6l5.207 3.005l-5.212 2.995z"></path>
+                </svg>
+            </a>
+            <a href="https://steamcommunity.com/id/h9t/">
+                <svg xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0px 0px 4px rgb(255, 255, 255));" width="35px" height="35px" viewBox="2 2 19.97 20">
+                    <path fill="#FFFFFF" d="M8.21 17.32L7 16.8a2.13 2.13 0 1 0 1.17-2.93l1.28.53a1.58 1.58 0 0 1-1.22 2.92z"></path>
+                    <path fill="#FFFFFF" d="M12 2a10 10 0 0 0-10 9.34l5.38 2.21a2.31 2.31 0 0 1 .47-.24A2.62 2.62 0 0 1 9 13.1l2.44-3.56a3.8 3.8 0 1 1 3.8 3.8h-.08l-3.51 2.5a2.77 2.77 0 0 1-5.47.68l-3.77-1.6A10 10 0 1 0 12 2z"></path>
+                    <path fill="#FFFFFF" d="M17.79 9.5a2.53 2.53 0 1 1-2.53-2.53a2.53 2.53 0 0 1 2.53 2.53z"></path>
+                </svg>
+            </a>               
+        </div>
+        <div class="container">
+          <div class="audio-player">
+            <div class="album-cover">
+              <img src="./src/xw.png" alt="album cover" style="width: 64px; height: 64px; border-radius: 50%; margin-right: 12px;">
+            </div>
+            <div class="player-controls">
+              <div class="song-info">
+                <div class="song-title">Sick Of This</div>
+                <p class="artist">6o</p>
+              </div>
+              <div class="progress-bar">
+                <div class="progress"></div>
+              </div>
+              <div class="buttons">
+                <button class="play-btn">
+                  <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 5v14l11-7L8 5z" fill="#ffffff"></path>
+                  </svg>
+                </button>
+                <button class="pause-btn" style="display: none;">
+                  <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 19h3V5H6v14zm9-14h-3v14h3V5z" fill="#ffffff"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        
+          <div class="terminal-loader">
+            <div class="terminal-header">
+              <div class="terminal-title">bitchez</div>
+              <div class="terminal-controls">
+                <div class="control close"></div>
+                <div class="control minimize"></div>
+                <div class="control maximize"></div>
+              </div>
+            </div>
+            <div class="text">
+              <span class="constant">RI</span><span id="dynamic-text"></span>
+            </div>
+          </div>
+        </div>
+        
+        
+        
+        <audio id="audio" src="./src/sound.mp3"></audio>
+        <script>
+          const audio = document.getElementById('audio');
+          const playBtn = document.querySelector('.play-btn');
+          const pauseBtn = document.querySelector('.pause-btn');
+          const progressBar = document.querySelector('.progress');
+          const progressBarContainer = document.querySelector('.progress-bar');
+        
+          playBtn.addEventListener('click', () => {
+            audio.play();
+            playBtn.style.display = 'none';
+            pauseBtn.style.display = 'inline-block';
+          });
+        
+          pauseBtn.addEventListener('click', () => {
+            audio.pause();
+            playBtn.style.display = 'inline-block';
+            pauseBtn.style.display = 'none';
+          });
+        
+          audio.addEventListener('timeupdate', () => {
+            const progressPercentage = (audio.currentTime / audio.duration) * 100;
+            progressBar.style.width = progressPercentage + '%';
+          });
+        
+          progressBarContainer.addEventListener('click', (event) => {
+            const clickX = event.offsetX;
+            const width = progressBarContainer.clientWidth;
+            const newTime = (clickX / width) * audio.duration;
+            audio.currentTime = newTime;
+          });
+
+          const dynamicText = document.getElementById('dynamic-text');
+const texts = ['CH', 'SK'];
+let currentTextIndex = 0;
+
+function typeWriter(text, callback) {
+  let i = 0;
+  const interval = setInterval(() => {
+    if (i < text.length) {
+      dynamicText.textContent += text.charAt(i);
+      i++;
+    } else {
+      clearInterval(interval);
+      setTimeout(() => {
+        deleteText(callback);
+      }, 1000); 
+    }
+  }, 200); 
+}
+
+function deleteText(callback) {
+  let i = dynamicText.textContent.length;
+  const interval = setInterval(() => {
+    if (i > 0) {
+      dynamicText.textContent = dynamicText.textContent.slice(0, -1);
+      i--;
+    } else {
+      clearInterval(interval);
+      currentTextIndex = (currentTextIndex + 1) % texts.length; 
+      typeWriter(texts[currentTextIndex], callback);
+    }
+  }, 100); 
+}
+
+typeWriter(texts[currentTextIndex], () => {});
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
           const text = "venty.lol";
           let index = 0;
           let direction = 1; 
@@ -103,104 +280,8 @@
     
           setInterval(typeWriter, 400);
         });
-    </script>
-</head>
-<body>
-<div id="loader"><div class="spinner"></div></div>
-<script src="script.js"></script>
-<div class="box">
-    <div class="avatar">
-        <img src="./img/avatar.png" alt="avatar" width="150px" height="150px"  style="border-radius: 100%; box-shadow: 0 0 20px black;">
+    
+        </script>
     </div>
-    <div class="info">
-        <span class="name">venty</span>
-        <span style="color: rgb(197, 197, 197);">maverick</span>
-        <div class="place">
-        <svg width="12px" height="12px" style="filter: drop-shadow(0px 0px 4px rgb(255, 255, 255));" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M11.3856 23.789C11.3856 23.789 11.3861 23.7894 12 23L12.6139 23.7894C12.2528 24.0702 11.7467 24.0699 11.3856 23.789Z" fill="#ffffff"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M12 6C9.79086 6 8 7.79086 8 10C8 12.2091 9.79086 14 12 14C14.2091 14 16 12.2091 16 10C16 7.79086 14.2091 6 12 6ZM10 10C10 8.89543 10.8954 8 12 8C13.1046 8 14 8.89543 14 10C14 11.1046 13.1046 12 12 12C10.8954 12 10 11.1046 10 10Z" fill="#ffffff"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M11.3856 23.789L12 23C12.6139 23.7894 12.615 23.7885 12.615 23.7885L12.6169 23.7871L12.6231 23.7822L12.645 23.765C12.6638 23.7501 12.6909 23.7287 12.7258 23.7008C12.7954 23.6451 12.8961 23.5637 13.0233 23.4587C13.2776 23.2488 13.6385 22.944 14.0706 22.5599C14.9334 21.793 16.0867 20.7041 17.2433 19.419C18.397 18.1371 19.5731 16.639 20.4653 15.0528C21.3524 13.4758 22 11.7393 22 10C22 7.34784 20.9464 4.8043 19.0711 2.92893C17.1957 1.05357 14.6522 0 12 0C9.34784 0 6.8043 1.05357 4.92893 2.92893C3.05357 4.8043 2 7.34784 2 10C2 11.7393 2.64762 13.4758 3.53467 15.0528C4.42693 16.639 5.60303 18.1371 6.75671 19.419C7.91329 20.7041 9.06662 21.793 9.92939 22.5599C10.3615 22.944 10.7224 23.2488 10.9767 23.4587C11.1039 23.5637 11.2046 23.6451 11.2742 23.7008C11.3091 23.7287 11.3362 23.7501 11.355 23.765L11.3769 23.7822L11.3831 23.7871L11.3856 23.789ZM6.34315 4.34315C7.84344 2.84285 9.87827 2 12 2C14.1217 2 16.1566 2.84285 17.6569 4.34315C19.1571 5.84344 20 7.87827 20 10C20 11.2607 19.5226 12.6492 18.7222 14.0722C17.9269 15.486 16.853 16.8629 15.7567 18.081C14.6633 19.2959 13.5666 20.332 12.7419 21.0651C12.4576 21.3178 12.2065 21.5337 12 21.7078C11.7935 21.5337 11.5424 21.3178 11.2581 21.0651C10.4334 20.332 9.33671 19.2959 8.24329 18.081C7.14697 16.8629 6.07307 15.486 5.27783 14.0722C4.47738 12.6492 4 11.2607 4 10C4 7.87827 4.84285 5.84344 6.34315 4.34315Z" fill="#afafaf"></path> </g></svg>
-        <span style="color: #afafaf;" >Poland</span>
-        </div>
-    </div>
-    <div class="audio-player">
-        <audio id="audio" src="./img/sound.mp3"></audio>
-        <div class="controls">
-            <button id="rewind"><svg width="16px" height="16px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 13.8L19 18V6L12 10.2M12 18L12 6L3 12L12 18Z" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></button>
-            <button id="playPause"><svg width="16px" height="16px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M16.6582 9.28638C18.098 10.1862 18.8178 10.6361 19.0647 11.2122C19.2803 11.7152 19.2803 12.2847 19.0647 12.7878C18.8178 13.3638 18.098 13.8137 16.6582 14.7136L9.896 18.94C8.29805 19.9387 7.49907 20.4381 6.83973 20.385C6.26501 20.3388 5.73818 20.0469 5.3944 19.584C5 19.053 5 18.1108 5 16.2264V7.77357C5 5.88919 5 4.94701 5.3944 4.41598C5.73818 3.9531 6.26501 3.66111 6.83973 3.6149C7.49907 3.5619 8.29805 4.06126 9.896 5.05998L16.6582 9.28638Z" stroke="#ffffff" stroke-width="2" stroke-linejoin="round"></path> </g></svg></button>
-            <button id="stop"><svg width="16px" height="16px" viewBox="-0.5 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M17 3.42004H7C4.79086 3.42004 3 5.2109 3 7.42004V17.42C3 19.6292 4.79086 21.42 7 21.42H17C19.2091 21.42 21 19.6292 21 17.42V7.42004C21 5.2109 19.2091 3.42004 17 3.42004Z" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></button>
-            <button id="forward"><svg width="16px" height="16px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 10.2L5 6L5 18L12 13.8M12 6L12 18L21 12L12 6Z" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></button>
-        </div>
-        <div class="progress-bar">
-            <div class="progress"></div>
-        </div>
-        <div class="time">
-            <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
-        </div>
-    </div>
-    <div class="socials">
-        <div class="tooltip-container">
-            <svg xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0px 0px 4px rgb(255, 255, 255));" width="36px" height="36px" viewBox="1.96 4.26 20.03 15.53"><path fill="currentColor" d="M14.82 4.26a10.14 10.14 0 0 0-.53 1.1a14.66 14.66 0 0 0-4.58 0a10.14 10.14 0 0 0-.53-1.1a16 16 0 0 0-4.13 1.3a17.33 17.33 0 0 0-3 11.59a16.6 16.6 0 0 0 5.07 2.59A12.89 12.89 0 0 0 8.23 18a9.65 9.65 0 0 1-1.71-.83a3.39 3.39 0 0 0 .42-.33a11.66 11.66 0 0 0 10.12 0q.21.18.42.33a10.84 10.84 0 0 1-1.71.84a12.41 12.41 0 0 0 1.08 1.78a16.44 16.44 0 0 0 5.06-2.59a17.22 17.22 0 0 0-3-11.59a16.09 16.09 0 0 0-4.09-1.35zM8.68 14.81a1.94 1.94 0 0 1-1.8-2a1.93 1.93 0 0 1 1.8-2a1.93 1.93 0 0 1 1.8 2a1.93 1.93 0 0 1-1.8 2zm6.64 0a1.94 1.94 0 0 1-1.8-2a1.93 1.93 0 0 1 1.8-2a1.92 1.92 0 0 1 1.8 2a1.92 1.92 0 0 1-1.8 2z"></path></svg>
-        <div class="tooltip">hoecheater#0</div>
-        </div>
-        <a href="https://www.instagram.com/instagram/">
-            <svg xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0px 0px 4px rgb(255, 255, 255));" width="35px" height="35px" viewBox="3 2.98 18.01 18.04"><path fill="currentColor" d="M20.947 8.305a6.53 6.53 0 0 0-.419-2.216a4.61 4.61 0 0 0-2.633-2.633a6.606 6.606 0 0 0-2.186-.42c-.962-.043-1.267-.055-3.709-.055s-2.755 0-3.71.055a6.606 6.606 0 0 0-2.185.42a4.607 4.607 0 0 0-2.633 2.633a6.554 6.554 0 0 0-.419 2.185c-.043.963-.056 1.268-.056 3.71s0 2.754.056 3.71c.015.748.156 1.486.419 2.187a4.61 4.61 0 0 0 2.634 2.632a6.584 6.584 0 0 0 2.185.45c.963.043 1.268.056 3.71.056s2.755 0 3.71-.056a6.59 6.59 0 0 0 2.186-.419a4.615 4.615 0 0 0 2.633-2.633c.263-.7.404-1.438.419-2.187c.043-.962.056-1.267.056-3.71c-.002-2.442-.002-2.752-.058-3.709zm-8.953 8.297c-2.554 0-4.623-2.069-4.623-4.623s2.069-4.623 4.623-4.623a4.623 4.623 0 0 1 0 9.246zm4.807-8.339a1.077 1.077 0 0 1-1.078-1.078a1.077 1.077 0 1 1 2.155 0c0 .596-.482 1.078-1.077 1.078z"></path><circle cx="11.994" cy="11.979" r="3.003" fill="currentColor"></circle></svg>
-        </a>
-        <a href="https://www.youtube.com/@ggwenti">
-            <svg xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0px 0px 4px rgb(255, 255, 255));" width="35px" height="35px" viewBox="1.99 5 20.01 14.01"><path fill="currentColor" d="M21.593 7.203a2.506 2.506 0 0 0-1.762-1.766C18.265 5.007 12 5 12 5s-6.264-.007-7.831.404a2.56 2.56 0 0 0-1.766 1.778c-.413 1.566-.417 4.814-.417 4.814s-.004 3.264.406 4.814c.23.857.905 1.534 1.763 1.765c1.582.43 7.83.437 7.83.437s6.265.007 7.831-.403a2.515 2.515 0 0 0 1.767-1.763c.414-1.565.417-4.812.417-4.812s.02-3.265-.407-4.831zM9.996 15.005l.005-6l5.207 3.005l-5.212 2.995z"></path></svg>
-        </a>
-        <a href="https://steamcommunity.com/id/h9t/">
-            <svg xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0px 0px 4px rgb(255, 255, 255));" width="35px" height="35px" viewBox="2 2 19.97 20"><path fill="currentColor" d="M8.21 17.32L7 16.8a2.13 2.13 0 1 0 1.17-2.93l1.28.53a1.58 1.58 0 0 1-1.22 2.92z"></path><path fill="currentColor" d="M12 2a10 10 0 0 0-10 9.34l5.38 2.21a2.31 2.31 0 0 1 .47-.24A2.62 2.62 0 0 1 9 13.1l2.44-3.56a3.8 3.8 0 1 1 3.8 3.8h-.08l-3.51 2.5a2.77 2.77 0 0 1-5.47.68l-3.77-1.6A10 10 0 1 0 12 2z"></path><path fill="currentColor" d="M17.79 9.5a2.53 2.53 0 1 0-2.53 2.5a2.54 2.54 0 0 0 2.53-2.5zm-4.42 0a1.9 1.9 0 1 1 1.9 1.91a1.9 1.9 0 0 1-1.9-1.92z"></path></svg>
-        </a>
-    </div>
-    
-    <script>
-        const audio = document.getElementById('audio');
-        const playPauseBtn = document.getElementById('playPause');
-        const stopBtn = document.getElementById('stop');
-        const rewindBtn = document.getElementById('rewind');
-        const forwardBtn = document.getElementById('forward');
-        const progressBar = document.querySelector('.progress');
-        const currentTimeDisplay = document.getElementById('currentTime');
-        const durationDisplay = document.getElementById('duration');
-    
-        playPauseBtn.addEventListener('click', () => {
-        if (audio.paused) {
-            audio.play();
-            playPauseBtn.innerHTML = '<svg width="16px" height="16px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M8 5V19M16 5V19" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>';
-        } else {
-            audio.pause();
-            playPauseBtn.innerHTML = '<svg width="16px" height="16px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M16.6582 9.28638C18.098 10.1862 18.8178 10.6361 19.0647 11.2122C19.2803 11.7152 19.2803 12.2847 19.0647 12.7878C18.8178 13.3638 18.098 13.8137 16.6582 14.7136L9.896 18.94C8.29805 19.9387 7.49907 20.4381 6.83973 20.385C6.26501 20.3388 5.73818 20.0469 5.3944 19.584C5 19.053 5 18.1108 5 16.2264V7.77357C5 5.88919 5 4.94701 5.3944 4.41598C5.73818 3.9531 6.26501 3.66111 6.83973 3.6149C7.49907 3.5619 8.29805 4.06126 9.896 5.05998L16.6582 9.28638Z" stroke="#ffffff" stroke-width="2" stroke-linejoin="round"></path> </g></svg>';
-        }
-    });
-    
-    
-        stopBtn.addEventListener('click', () => {
-            audio.pause();
-            audio.currentTime = 0;
-            playPauseBtn.innerHTML = '<svg width="16px" height="16px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M16.6582 9.28638C18.098 10.1862 18.8178 10.6361 19.0647 11.2122C19.2803 11.7152 19.2803 12.2847 19.0647 12.7878C18.8178 13.3638 18.098 13.8137 16.6582 14.7136L9.896 18.94C8.29805 19.9387 7.49907 20.4381 6.83973 20.385C6.26501 20.3388 5.73818 20.0469 5.3944 19.584C5 19.053 5 18.1108 5 16.2264V7.77357C5 5.88919 5 4.94701 5.3944 4.41598C5.73818 3.9531 6.26501 3.66111 6.83973 3.6149C7.49907 3.5619 8.29805 4.06126 9.896 5.05998L16.6582 9.28638Z" stroke="#ffffff" stroke-width="2" stroke-linejoin="round"></path> </g></svg>';
-        });
-    
-        rewindBtn.addEventListener('click', () => {
-            audio.currentTime -= 10;
-        });
-    
-        forwardBtn.addEventListener('click', () => {
-            audio.currentTime += 10;
-        });
-    
-        audio.addEventListener('timeupdate', () => {
-            const progress = (audio.currentTime / audio.duration) * 100;
-            progressBar.style.width = `${progress}%`;
-    
-            const minutes = Math.floor(audio.currentTime / 60);
-            const seconds = Math.floor(audio.currentTime % 60);
-            currentTimeDisplay.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-    
-            if (!isNaN(audio.duration)) {
-                const totalMinutes = Math.floor(audio.duration / 60);
-                const totalSeconds = Math.floor(audio.duration % 60);
-                durationDisplay.textContent = `${totalMinutes}:${totalSeconds < 10 ? '0' : ''}${totalSeconds}`;
-            }
-        });
-    </script>
-</div>
 </body>
 </html>
